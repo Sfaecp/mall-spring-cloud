@@ -1,0 +1,21 @@
+server:
+   port: 8060
+   servlet:
+      context-path: /mall-order
+#spring.cloud.nacos.config.group=mall
+spring:
+   application:
+      name: mall-order
+   cloud:
+      nacos:
+         discovery:
+            server-addr: 192.168.4.160:8848
+#spring.cloud.nacos.config.file-extension=properties
+   datasource:
+      driver-class-name: oracle.jdbc.driver.OracleDriver
+      url: jdbc:oracle:thin:@192.168.4.160:1521:orcl
+      username: scott
+      password: 1
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  

@@ -1,0 +1,29 @@
+server:
+   port: 8088
+spring:
+   cloud:
+      nacos:
+         discovery:
+            server-addr: 192.168.4.160:8848
+      gateway:
+         locator:
+            enable: true
+         routes:
+         - id: order
+           uri: lb://mall-order
+           predicates:
+           - Path=/order/**
+           filters:
+           - RewritePath=/order(?<segment>/?.*), /mall-order$\{segment}
+         - id: account
+           uri: lb://mall-account
+           predicates:
+           - Path=/account/**
+           filters:
+           - RewritePath=/account(?<segment>/?.*), $\{segment}
+         - id: product
+           uri: lb://mall-product
+           predicates:
+           - Path=/mall-product/**,/product/**
+           filters:
+           - RewritePath=/product(?<segment>/?.*), /mall-product$\{segment}
