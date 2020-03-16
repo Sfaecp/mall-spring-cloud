@@ -11,3 +11,10 @@ animal
 - Dog
 
 animal: {Cat, Dog}
+
+#null用 ~ 表示
+productId： ~
+
+#yaml 允许使用两个感叹号，强制转换数据类型
+e: !!str 123
+f: !!str true
