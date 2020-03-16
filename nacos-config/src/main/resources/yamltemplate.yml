@@ -1,0 +1,13 @@
+#对象类型
+name: Steve
+age: 18
+
+#hash类型
+people: { name: Steve, age: 18}
+
+#数组类型
+animal
+- Cat
+- Dog
+
+animal: {Cat, Dog}
